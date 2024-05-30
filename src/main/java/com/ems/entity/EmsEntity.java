@@ -16,18 +16,6 @@ public class EmsEntity {
 		private long emsId;
 		private String emsUserName;
 		private String emsPassword;
-		private String email;
-		
-		
-		
-		
-		public EmsEntity(long emsId, String emsUserName, String emsPassword, String email) {
-			super();
-			this.emsId = emsId;
-			this.emsUserName = emsUserName;
-			this.emsPassword = emsPassword;
-			this.email = email;
-		}
 		public long getEmsId() {
 			return emsId;
 		}
@@ -46,18 +34,9 @@ public class EmsEntity {
 		public void setEmsPassword(String emsPassword) {
 			this.emsPassword = emsPassword;
 		}
-		public String getEmail() {
-			return email;
-		}
-		public void setEmail(String email) {
-			this.email = email;
-		}
 		
 		
 		
 		
-		
-
 }
-
 

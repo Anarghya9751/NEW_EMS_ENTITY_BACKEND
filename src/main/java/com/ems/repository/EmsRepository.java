@@ -6,7 +6,6 @@ import com.ems.entity.EmsEntity;
 
 public interface EmsRepository extends JpaRepository<EmsEntity, Long>{
 
-	EmsEntity findByEmail(String email);
-	
+
 
 }

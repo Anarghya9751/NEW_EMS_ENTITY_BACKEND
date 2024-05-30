@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ems.entity.EmsEntity;
-import com.ems.repository.EmsRepository;
 import com.ems.services.EmsServices;
 
 @CrossOrigin(origins = "*")
@@ -20,8 +19,6 @@ public class EmsRestController {
 	    @Autowired
 		private EmsServices service;
 	    
-	    @Autowired
-	    private EmsRepository emsRepo;
 		
 	    @PostMapping("/save")
 	    public ResponseEntity<String>saveusernameandpassword(@RequestBody EmsEntity entity){
@@ -31,21 +28,7 @@ public class EmsRestController {
 	    	}
 	    	return new ResponseEntity<String>("",HttpStatus.INTERNAL_SERVER_ERROR);
 	    }
-	    
-	    @PostMapping("/login")
-		public ResponseEntity<String> login(@RequestBody EmsEntity user){
-			String email = user.getEmail();
-			String password = user.getEmsPassword();
-			
-			EmsEntity userEmail = emsRepo.findByEmail(email);
-
-			if (!userEmail.equals(email)) {
-				 return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
-			}
-			else {
-				return ResponseEntity.ok("valid");
-			}
-	    }			
+	
  }
 	    
 

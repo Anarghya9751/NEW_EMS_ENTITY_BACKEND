@@ -2,8 +2,6 @@ package com.ems.serviceimpl;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.ems.entity.EmsEntity;
@@ -22,20 +20,6 @@ public class EmsServiceImpl implements EmsServices{
 			
 			return true;
 		}
-		@Override
-	public ResponseEntity<String> loginUser(String email) {
-			
-			EmsEntity user = emsrepo.findByEmail(email);
-			String password = user.getEmsPassword();
-		
-			if(!user.getEmail().equals(email)) {
-				return ResponseEntity.status(HttpStatus.BAD_GATEWAY).build();
-			}
-			else if(!user.getEmsPassword().equals(password))
-				return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
-		else
-				return ResponseEntity.ok("valid");
-
-	}
+	
 
 }
