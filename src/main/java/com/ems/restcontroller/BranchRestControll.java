@@ -20,7 +20,7 @@ public class BranchRestControll {
 	public ResponseEntity<String> SaveEms(@RequestBody BranchEntity entity){
 		Boolean Status = Service.SaveEms(entity);
 		if(Status) {
-			return new ResponseEntity<String>("user save successfully",HttpStatus.CREATED);
+			return new ResponseEntity<String>("Data saved successfully",HttpStatus.CREATED);
 		}
 		return new ResponseEntity<String>("user not save successfully",HttpStatus.INTERNAL_SERVER_ERROR);
 		
