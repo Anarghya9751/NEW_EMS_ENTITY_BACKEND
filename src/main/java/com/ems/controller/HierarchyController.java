@@ -9,27 +9,17 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HierarchyController {
 	@Autowired
-	public OrganizationDTO repository;
-	@GetMapping("/getOrganizationDTO")
-	public List<OrganizationDTO> OrginizationDTO(){
-		return repository.findALl();
+	public HierarchyServiceImpl hierarchyImpl;
+
+	@GetMapping("/getOrgDetails")
+	public List<OrganizationDTO> getOrganizationsDetails(){
+		return hierarchyImpl.getOrganizationsDetails();
 		
 	}
-	public BranchDTODTO repository;
-	@GetMapping("/getBranchDTO")
-	public List<BranchDTO> BranchDTO(){
-		return repository.findAll();
+	try {
+		
 	}
-	public DepartmentDTO repository;
-	@GetMapping("/getDepartmentDTO")
-	public List<DepartmentDTO> DepartmentDTO(){
-		return repository.findAll();
+	catch(exception ex) {
+		
 	}
-	
-	public RoleDTO repository;
-	@GetMapping("/getRoleDTO")
-	public List<RoleDTO> RoleDTO(){
-		return repository.findAllRole
-	}
-
 }
