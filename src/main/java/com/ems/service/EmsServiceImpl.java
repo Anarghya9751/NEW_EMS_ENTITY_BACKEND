@@ -18,6 +18,10 @@ public class EmsServiceImpl implements EmsService {
 
 	}
 	
+	@Override
+	public Organization updateEms(Integer Oid, Organization organization) {
+		organization.setOid(Oid);
+		return emsrepo.save(organization);
+	}
 	
-	
-}
+} 

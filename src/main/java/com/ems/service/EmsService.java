@@ -6,4 +6,6 @@ public interface EmsService {
 
 	public Organization createEms(Organization organization);
 	
+	public Organization updateEms(Integer Oid,Organization organization);
+	
 }
