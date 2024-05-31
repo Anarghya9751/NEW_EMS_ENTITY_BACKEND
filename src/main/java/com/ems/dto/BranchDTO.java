@@ -1,10 +1,14 @@
 package com.ems.dto;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class BranchDTO {
 	private String name;
-	private List<DepartmentDTO> departments;
+	private List<DepartmentDTO> departments = new ArrayList<>();
+		
+	public BranchDTO() {
+	}
 
 	public BranchDTO(String name, List<DepartmentDTO> departments) {
 		this.name = name;
