@@ -3,6 +3,7 @@ package com.ems.restcontroller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -40,8 +41,16 @@ public class BranchRestController {
 			return new ResponseEntity<String>("Branch not updated successfully", HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 		  
-	      
-		
+	      @DeleteMapping("/delete/{branchId}	")
+		public ResponseEntity<String> deleteById(@PathVariable Long branchId) {
+			String deleteById = services.deleteById(branchId);
+			if(deleteById.equals("delete")) {
+				return new ResponseEntity<String>("delete successfully",HttpStatus.OK);
+			}else if (deleteById.equals("not delete")) {
+				return new ResponseEntity<String>("delete not successfully",HttpStatus.OK);
+			}
+			return new ResponseEntity<String>("branch not found",HttpStatus.OK);
+		}
 	
 
 }

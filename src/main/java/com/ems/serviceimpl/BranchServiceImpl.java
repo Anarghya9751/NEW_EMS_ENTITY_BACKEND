@@ -37,6 +37,16 @@ public class BranchServiceImpl implements BranchServices {
 			return false;
 		}
 
+		@Override
+		public String deleteById(Long branchId) {
+			Optional<BranchEntity>    OptionalBranchId = branchrepo.findById(branchId);
+			if(OptionalBranchId.isPresent()) {
+				branchrepo.deleteById(branchId);
+				return "delete";
+			}
+			return "not found";
+		}
+
 		
 
 	

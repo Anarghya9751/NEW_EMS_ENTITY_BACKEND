@@ -10,6 +10,8 @@ public interface BranchServices {
 
 		public Boolean updateBranch(BranchEntity branch, Long branchId);
 		
+		public String deleteById(Long branchId);
+		
 		
 	}
 
