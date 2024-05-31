@@ -8,33 +8,32 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "emsdb")
+@Table(name = "EMS-DT")
 public class EmsEntity {
 
 		@Id
 	    @GeneratedValue (strategy = GenerationType.IDENTITY)		
-		private long emsId;
-		private String emsUserName;
-		private String emsPassword;
-		public long getEmsId() {
-			return emsId;
+		private long UserId;
+		private String Username;
+		private String Password;
+		public long getUserId() {
+			return UserId;
 		}
-		public void setEmsId(long emsId) {
-			this.emsId = emsId;
+		public void setUserId(long userId) {
+			UserId = userId;
 		}
-		public String getEmsUserName() {
-			return emsUserName;
+		public String getUsername() {
+			return Username;
 		}
-		public void setEmsUserName(String emsUserName) {
-			this.emsUserName = emsUserName;
+		public void setUsername(String username) {
+			Username = username;
 		}
-		public String getEmsPassword() {
-			return emsPassword;
+		public String getPassword() {
+			return Password;
 		}
-		public void setEmsPassword(String emsPassword) {
-			this.emsPassword = emsPassword;
+		public void setPassword(String password) {
+			Password = password;
 		}
-		
 		
 		
 		
