@@ -20,6 +20,25 @@ public class EmsServiceImpl implements EmsServices{
 			
 			return true;
 		}
-	
+
+		@Override
+		public EmsEntity getEmsIdById(Long emsId) {
+			EmsEntity Id = emsrepo.findById(emsId).get();
+			
+			return Id;
+		}
+
+		@Override
+		public String login(String emsUserName, String emsPassword) {
+			EmsEntity user = emsrepo.findByEmsUserName(emsUserName);
+			if (user == null) {
+				return "Invalid username";
+			}
+			if(!user.getEmsPassword().equals(emsPassword)) {
+				return "Invalid password";
+				
+			}
+			return "login success";
+		}
 
 }

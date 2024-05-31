@@ -16,6 +16,7 @@ public class EmsEntity {
 		private long emsId;
 		private String emsUserName;
 		private String emsPassword;
+		
 		public long getEmsId() {
 			return emsId;
 		}

@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,10 +26,24 @@ public class EmsRestController {
 	    public ResponseEntity<String>saveusernameandpassword(@RequestBody EmsEntity entity){
 	    	Boolean status = service.saveusernameandpassword(entity);
 	    	if(status) {
-	    		return new ResponseEntity<String>("",HttpStatus.CREATED);
+	    		return new ResponseEntity<String>("saved",HttpStatus.CREATED);
 	    	}
-	    	return new ResponseEntity<String>("",HttpStatus.INTERNAL_SERVER_ERROR);
+	    	return new ResponseEntity<String>("having issue",HttpStatus.INTERNAL_SERVER_ERROR);
 	    }
+	    
+	    @GetMapping("/get/{emsId}")
+	    public EmsEntity getById(@PathVariable Long emsId) {
+	    		EmsEntity user = service.getEmsIdById(emsId);
+	    		return user;
+	    	}
+
+	    @PostMapping("/login")
+	    public String login(@RequestBody EmsEntity user){
+	    	
+	    	return service.login(user.getEmsUserName(),user.getEmsPassword());
+	    	
+	    }
+	    
 	
  }
 	    
