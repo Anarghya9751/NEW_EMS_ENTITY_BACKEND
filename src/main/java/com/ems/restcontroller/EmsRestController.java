@@ -12,7 +12,11 @@ import com.ems.service.EmsService;
 
 @RestController
 public class EmsRestController {
+<<<<<<< HEAD
 	
+=======
+
+>>>>>>> 719b52ce7760fb566b0fd48291c948d9787f8fca
 	@Autowired
 	private EmsService emsservice;
 	
@@ -21,10 +25,21 @@ public class EmsRestController {
 	{
 		return emsservice.createEms(organization);
 	}
+<<<<<<< HEAD
 	@PutMapping("/update/{Oid}")
 	public Organization updateEms(@PathVariable Integer Oid ,@RequestBody Organization organization )
 	{
 		return emsservice.updateEms(Oid, organization);
 	}
 
+=======
+	
+	@PutMapping("/update/{Oid}")
+	public Organization updateEms(@PathVariable Integer Oid, @RequestBody Organization organization)
+	{
+		return emsservice.updateEms(Oid,organization);
+	}
+
+	
+>>>>>>> 719b52ce7760fb566b0fd48291c948d9787f8fca
 }
