@@ -14,6 +14,16 @@ public class BranchEntity {
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
 		private Long BranchID;
+        
+		private String BranchName;
+
+		private String BranchLocation;
+
+		private String ParentOrg;
+
+		private String Status;
+
+		private String Actions;
 		
 		public Long getBranchID() {
 	return BranchID;
@@ -63,15 +73,7 @@ public void setActions(String actions) {
 	Actions = actions;
 }
 
-		private String BranchName;
-		
-		private String BranchLocation;
-		
-		private String ParentOrg;
-		
-		private String Status;
-		
-		private String Actions;
+
 	
 		
 }
