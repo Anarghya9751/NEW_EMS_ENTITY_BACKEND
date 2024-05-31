@@ -7,6 +7,9 @@ public class OrganizationDTO {
 	private String name;
 	private List<BranchDTO> branches = new ArrayList<>();
 
+	public OrganizationDTO() {
+	}
+
 	public OrganizationDTO(String name, List<BranchDTO> branches) {
 		this.name = name;
 		this.branches = branches;
