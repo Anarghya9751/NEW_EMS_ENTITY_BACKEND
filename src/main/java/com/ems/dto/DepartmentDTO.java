@@ -1,10 +1,14 @@
 package com.ems.dto;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class DepartmentDTO {
 	private String name;
-	private List<DesignationDTO> roles;
+	private List<DesignationDTO> roles  = new ArrayList<>();
+	
+	public DepartmentDTO() {
+	}
 
 	public DepartmentDTO(String name, List<DesignationDTO> roles) {
 		this.name = name;
