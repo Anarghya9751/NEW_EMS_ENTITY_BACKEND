@@ -17,9 +17,12 @@ public class HierarchyController {
 		
 	}
 	try {
-		
+		Class.forName("com.mysql.cj.jdbc.Driver"); 
 	}
-	catch(exception ex) {
-		
+
+		catch (SQLException | ClassNotFoundException e) { 
+            // handle the SQL exception 
+            handleSQLException(e); 
 	}
+
 }
