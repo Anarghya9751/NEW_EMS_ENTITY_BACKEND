@@ -10,5 +10,6 @@ public interface EmsServices {
 
 		public String login(String emsUserName, String emsPassword);
 
+		Boolean updateemsuser(EmsEntity user, String emsPassword, String emsUserName);
 				
 }

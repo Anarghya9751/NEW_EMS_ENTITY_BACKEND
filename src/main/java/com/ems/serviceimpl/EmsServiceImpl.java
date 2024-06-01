@@ -1,53 +1,26 @@
 package com.ems.serviceimpl;
 
 
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ems.entity.EmsEntity;
 import com.ems.repository.EmsRepository;
-import com.ems.services.EmsService;
+import com.ems.services.EmsServices;
 
 @Service
-public class EmsServiceImpl implements EmsService{
+public class EmsServiceImpl implements EmsServices{
 
-	
-	
-		@Autowired 
+	    @Autowired
 		private EmsRepository emsrepo;
-
-
 		@Override
-		public Boolean saveUsernamePassword(EmsEntity user) {
-			emsrepo.save(user);
+		public boolean saveusernameandpassword(EmsEntity entity) {
+		
+			emsrepo.save(entity);
+			
 			return true;
 		}
 
-<<<<<<< HEAD
-
-		@Override
-		public boolean validateUser(String Username, String oldPassword) {
-           Optional<EmsEntity> user = emsrepo.findByUsername(Username);
-			return user.isPresent() && user.get().equals(oldPassword);
-		}
-
-
-		@Override
-		public void updatePassword(String Username, String newPassword) {
-            Optional<EmsEntity> user = emsrepo.findByUsername(Username);	
-            if (user.isPresent()) {
-            	user.get().setPassword(newPassword);
-            	emsrepo.save(user.get());
-				
-			}
-		}
-
-
-		
-		
-=======
 		@Override
 		public EmsEntity getEmsIdById(Long emsId) {
 			EmsEntity Id = emsrepo.findById(emsId).get();
@@ -61,37 +34,29 @@ public class EmsServiceImpl implements EmsService{
 			if (user == null) {
 				return "Invalid username";
 			}
-			if(!user.getEmsPassword().equals(emsPassword)) {
+			else if(!user.getEmsPassword().equals(emsPassword)) {
 				return "Invalid password";
 				
 			}
+			if (user.getEmsUserName().isEmpty() || user.getEmsPassword().isEmpty()) {
+				
+				return "Invalid username and password";
+			}
 			return "login success";
 		}
->>>>>>> 4fa85796c38a6df67cd2fe03753730e5c5464f24
+
+		@Override
+		public Boolean updateemsuser(EmsEntity user, String emsPassword, String emsUserName) {
+		
+			EmsEntity byId = emsrepo.findByEmsUserName(emsUserName);
+			
+			if(!byId.getEmsUserName().isEmpty()) {
+
+				byId.setEmsPassword(emsPassword);
+				emsrepo.save(byId);
+				return true;
+			}
+			return false;
+		}
 
 }
-
-
-
-					    
-			
-		
-
-
-		
-
-
-    
-
-
-
-
-
-		
-	    
-	  
-
-				
-		
-		
-
