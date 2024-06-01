@@ -25,6 +25,7 @@ public class EmsServiceImpl implements EmsService{
 			return true;
 		}
 
+<<<<<<< HEAD
 
 		@Override
 		public boolean validateUser(String Username, String oldPassword) {
@@ -46,6 +47,27 @@ public class EmsServiceImpl implements EmsService{
 
 		
 		
+=======
+		@Override
+		public EmsEntity getEmsIdById(Long emsId) {
+			EmsEntity Id = emsrepo.findById(emsId).get();
+			
+			return Id;
+		}
+
+		@Override
+		public String login(String emsUserName, String emsPassword) {
+			EmsEntity user = emsrepo.findByEmsUserName(emsUserName);
+			if (user == null) {
+				return "Invalid username";
+			}
+			if(!user.getEmsPassword().equals(emsPassword)) {
+				return "Invalid password";
+				
+			}
+			return "login success";
+		}
+>>>>>>> 4fa85796c38a6df67cd2fe03753730e5c5464f24
 
 }
 

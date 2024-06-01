@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -27,6 +29,7 @@ public class EmsRestController {
 	    public ResponseEntity<String>saveusernameandpassword(@RequestBody EmsEntity user){
 	    	Boolean status = service.saveUsernamePassword(user);
 	    	if(status) {
+<<<<<<< HEAD
 	    		return new ResponseEntity<String>("user saved successfully",HttpStatus.CREATED);
 	    	}
 	    	return new ResponseEntity<String>("user not saved",HttpStatus.INTERNAL_SERVER_ERROR);
@@ -58,6 +61,28 @@ public class EmsRestController {
 
 	
  
+=======
+	    		return new ResponseEntity<String>("saved",HttpStatus.CREATED);
+	    	}
+	    	return new ResponseEntity<String>("having issue",HttpStatus.INTERNAL_SERVER_ERROR);
+	    }
+	    
+	    @GetMapping("/get/{emsId}")
+	    public EmsEntity getById(@PathVariable Long emsId) {
+	    		EmsEntity user = service.getEmsIdById(emsId);
+	    		return user;
+	    	}
+
+	    @PostMapping("/login")
+	    public String login(@RequestBody EmsEntity user){
+	    	
+	    	return service.login(user.getEmsUserName(),user.getEmsPassword());
+	    	
+	    }
+	    
+	
+ }
+>>>>>>> 4fa85796c38a6df67cd2fe03753730e5c5464f24
 	    
 
 
