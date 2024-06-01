@@ -9,6 +9,8 @@ public interface BranchService {
 	public BranchEntity getBranchbyId(Long BranchId);
 	
 	public String deleteById(Long BranchId);
+	
+	public Boolean Updateuser(BranchEntity entity,Long BranchId );
 
 	
 }

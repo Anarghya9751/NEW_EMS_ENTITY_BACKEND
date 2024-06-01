@@ -2,6 +2,7 @@ package com.ems.serviceImp;
 
 import java.util.Optional;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -40,6 +41,21 @@ public class BranchServiceImpl implements BranchService{
 			return "delete";
 		}
 		return "not Found";
+		
+	}
+
+	@Override
+	public Boolean Updateuser(BranchEntity entity, Long BranchId) {
+		Optional<BranchEntity> optionalbranch = Repo.findById(BranchId);
+		if(optionalbranch.isPresent()) {
+			BranchEntity branchEntity = optionalbranch.get();
+			
+			BeanUtils.copyProperties(entity, branchEntity);
+			branchEntity.setBranchID(BranchId);
+			Repo.save(branchEntity);
+			return true;
+		}
+		return false;
 	}
 
 	
