@@ -8,43 +8,47 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "EMS-DT")
+@Table(name = "EMS-IN")
 public class EmsEntity {
 
 		@Id
-	    @GeneratedValue (strategy = GenerationType.IDENTITY)		
-<<<<<<< HEAD
-		private long UserId;
-		private String Username;
-		private String Password;
-		public long getUserId() {
-			return UserId;
-=======
-		private long emsId;
-		private String emsUserName;
-		private String emsPassword;
-		
-		public long getEmsId() {
-			return emsId;
->>>>>>> 4fa85796c38a6df67cd2fe03753730e5c5464f24
+	    @GeneratedValue (strategy = GenerationType.IDENTITY)	
+		private Long userId;
+		private String username;
+		private String password;
+		private String email;
+		private String resetToken;
+		public Long getUserId() {
+			return userId;
 		}
-		public void setUserId(long userId) {
-			UserId = userId;
+		public void setUserId(Long userId) {
+			this.userId = userId;
 		}
 		public String getUsername() {
-			return Username;
+			return username;
 		}
 		public void setUsername(String username) {
-			Username = username;
+			this.username = username;
 		}
 		public String getPassword() {
-			return Password;
+			return password;
 		}
 		public void setPassword(String password) {
-			Password = password;
+			this.password = password;
 		}
-		
-		
+		public String getEmail() {
+			return email;
+		}
+		public void setEmail(String email) {
+			this.email = email;
+		}
+		public String getResetToken() {
+			return resetToken;
+		}
+		public void setResetToken(String resetToken) {
+			this.resetToken = resetToken;
+		}
+						
 		
 }
 

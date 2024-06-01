@@ -1,22 +1,28 @@
 package com.ems.serviceimpl;
 
 
-import java.util.Optional;
+import java.util.UUID;
 
+import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 
 import com.ems.entity.EmsEntity;
 import com.ems.repository.EmsRepository;
-import com.ems.services.EmsService;
+import com.ems.service.EmsService;
 
-@Service
+
 public class EmsServiceImpl implements EmsService{
 
 	
 	
 		@Autowired 
 		private EmsRepository emsrepo;
+		
+		
+		@Autowired
+	    private JavaMailSender javaMailSender;
 
 
 		@Override
@@ -25,57 +31,47 @@ public class EmsServiceImpl implements EmsService{
 			return true;
 		}
 
-<<<<<<< HEAD
-
+         
 		@Override
-		public boolean validateUser(String Username, String oldPassword) {
-           Optional<EmsEntity> user = emsrepo.findByUsername(Username);
-			return user.isPresent() && user.get().equals(oldPassword);
-		}
+	    public void forgotPassword(String username, String email) {
+	        EmsEntity user = emsrepo.findByUsername(username);
+	        
+	        if (user != null && user.getEmail().equals(email)) {
+	            String token = UUID.randomUUID().toString();
+	            
+	            user.setResetToken(token);
+	            
+	            emsrepo.save(user);
+	            
+	            sendResetPasswordEmail(user.getEmail(), token);
+	        } else {
+	            throw new RuntimeException("User with provided username and email not found");
+	        }
+	    }
+	    
+	    private void sendResetPasswordEmail(String email, String token) {
+	        SimpleMailMessage message = new SimpleMailMessage();
+	        message.setTo(email);
+	        message.setSubject("Reset Your Password");
+	        message.setText("To reset your password, click the link below:\n\n"
+	                + "http://yourwebsite.com/reset-password?token=" + token);
+	        
+	        javaMailSender.send(message);
+	    }
 
 
-		@Override
-		public void updatePassword(String Username, String newPassword) {
-            Optional<EmsEntity> user = emsrepo.findByUsername(Username);	
-            if (user.isPresent()) {
-            	user.get().setPassword(newPassword);
-            	emsrepo.save(user.get());
-				
-			}
-		}
+	
 
+				}
+
+
+	
 
 		
 		
-=======
-		@Override
-		public EmsEntity getEmsIdById(Long emsId) {
-			EmsEntity Id = emsrepo.findById(emsId).get();
-			
-			return Id;
-		}
-
-		@Override
-		public String login(String emsUserName, String emsPassword) {
-			EmsEntity user = emsrepo.findByEmsUserName(emsUserName);
-			if (user == null) {
-				return "Invalid username";
-			}
-			if(!user.getEmsPassword().equals(emsPassword)) {
-				return "Invalid password";
-				
-			}
-			return "login success";
-		}
->>>>>>> 4fa85796c38a6df67cd2fe03753730e5c5464f24
-
-}
 
 
 
-					    
-			
-		
 
 
 		
