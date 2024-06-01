@@ -7,7 +7,10 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6ea4028129b79d9c066b4dff0b815471470b732d
 @Table(name="ORGANIZATIONTABLE")
 
 public class Organization {
@@ -82,7 +85,7 @@ public class Organization {
 	public String getEmailId() {
 		return emailId;
 	}
-	public void setEmailId(String emailId) {
+	public void setEmailId(String emailId) {   
 		this.emailId = emailId;
 	}
 	public String getCity() {
@@ -94,6 +97,7 @@ public class Organization {
 	public String getWebsiteUrl() {
 		return websiteUrl;
 	}
+<<<<<<< HEAD
 }
 	
 
@@ -103,3 +107,7 @@ public class Organization {
 
 
 	
+=======
+
+}
+>>>>>>> 6ea4028129b79d9c066b4dff0b815471470b732d

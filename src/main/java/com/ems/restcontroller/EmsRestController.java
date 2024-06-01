@@ -13,8 +13,11 @@ import com.ems.service.EmsService;
 @RestController
 public class EmsRestController {
 
+<<<<<<< HEAD
 	
 
+=======
+>>>>>>> 6ea4028129b79d9c066b4dff0b815471470b732d
 	@Autowired
 	private EmsService emsservice;
 	
@@ -31,3 +34,7 @@ public class EmsRestController {
 	}}
 
 
+<<<<<<< HEAD
+=======
+}
+>>>>>>> 6ea4028129b79d9c066b4dff0b815471470b732d
