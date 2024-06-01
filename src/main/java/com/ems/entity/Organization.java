@@ -7,7 +7,14 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+
+=======
+>>>>>>> 6ea4028129b79d9c066b4dff0b815471470b732d
+>>>>>>> 78c95d0677ca72b957cffcd64d6019603fd964b8
 @Table(name="ORGANIZATIONTABLE")
 
 public class Organization {
@@ -61,7 +68,7 @@ public class Organization {
 	public void setPincode(Integer pincode) {
 		this.pinCode = pincode;
 	}
-	public String getState() {
+	public String getState() { 
 		return state;
 	}
 	public void setState(String state) {
@@ -82,7 +89,7 @@ public class Organization {
 	public String getEmailId() {
 		return emailId;
 	}
-	public void setEmailId(String emailId) {
+	public void setEmailId(String emailId) {   
 		this.emailId = emailId;
 	}
 	public String getCity() {
@@ -94,8 +101,24 @@ public class Organization {
 	public String getWebsiteUrl() {
 		return websiteUrl;
 	}
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+}
+	
+
+
+	
+>>>>>>> 78c95d0677ca72b957cffcd64d6019603fd964b8
 
 
 
 	
+<<<<<<< HEAD
 }
+=======
+=======
+
+}
+>>>>>>> 6ea4028129b79d9c066b4dff0b815471470b732d
+>>>>>>> 78c95d0677ca72b957cffcd64d6019603fd964b8

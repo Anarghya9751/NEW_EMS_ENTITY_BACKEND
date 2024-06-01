@@ -12,7 +12,16 @@ import com.ems.service.EmsService;
 
 @RestController
 public class EmsRestController {
+<<<<<<< HEAD
 
+=======
+
+<<<<<<< HEAD
+	
+
+=======
+>>>>>>> 6ea4028129b79d9c066b4dff0b815471470b732d
+>>>>>>> 78c95d0677ca72b957cffcd64d6019603fd964b8
 	@Autowired
 	private EmsService emsservice;
 	
@@ -26,6 +35,13 @@ public class EmsRestController {
 	public Organization updateEms(@PathVariable Integer Oid ,@RequestBody Organization organization )
 	{
 		return emsservice.updateEms(Oid, organization);
-	}
+	}}
 
+<<<<<<< HEAD
+=======
+
+<<<<<<< HEAD
+=======
+>>>>>>> 78c95d0677ca72b957cffcd64d6019603fd964b8
 }
+>>>>>>> 6ea4028129b79d9c066b4dff0b815471470b732d
