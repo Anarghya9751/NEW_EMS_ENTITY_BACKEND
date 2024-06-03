@@ -58,6 +58,11 @@ public class BranchServiceImpl implements BranchService{
 		}
 		return false;
 	}
+	@Override
+	public List<BranchEntity> getAllems() 
+	{
+		return Repo.findAll();
+	}
 
 	@Override
 	public List<BranchEntity> getAllUser() {

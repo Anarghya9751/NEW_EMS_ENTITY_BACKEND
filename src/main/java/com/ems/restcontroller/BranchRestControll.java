@@ -60,10 +60,20 @@ public class BranchRestControll {
 		return new ResponseEntity<String>("update not successfully",HttpStatus.INTERNAL_SERVER_ERROR);
 	
 	}
+<<<<<<< HEAD
 	
 	@GetMapping("/getalldata")
 	public ResponseEntity<List<BranchEntity>>getAllUser(){
 		List<BranchEntity> allUser = Service.getAllUser();
 		return new ResponseEntity<List<BranchEntity>>(allUser,HttpStatus.OK);
+=======
+	@GetMapping("/New")
+	public ResponseEntity<List<BranchEntity>> getAllems()
+	{
+		List<BranchEntity> allems = Service.getAllems();
+		
+		return new ResponseEntity<List<BranchEntity>>(allems,HttpStatus.OK);
+		
+>>>>>>> 57335af968d4d58837d339bf38c13935a75f69de
 	}
 }
