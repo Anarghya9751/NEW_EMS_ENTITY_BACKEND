@@ -1,18 +1,24 @@
 package com.ems.entity;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+import jakarta.persistence.Table;
 
-public class UserEntity {
+@Entity
+@Table(name = "EMS")
+public class EmsEntity {
 	
 	
 	@jakarta.persistence.Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long Id;
  
-	private String UserName;
+	private String username;
 	
-	private String Password;
+	private String email;
+	
+	private String password;
 
 	public Long getId() {
 		return Id;
@@ -22,19 +28,34 @@ public class UserEntity {
 		Id = id;
 	}
 
-	public String getUserName() {
-		return UserName;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setUserName(String userName) {
-		UserName = userName;
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getPassword() {
-		return Password;
+		return password;
 	}
 
 	public void setPassword(String password) {
-		Password = password;
+		this.password = password;
 	}
-}
+
+	public void setResetToken(String token) {
+		
+	}
+	
+	
+
+	}

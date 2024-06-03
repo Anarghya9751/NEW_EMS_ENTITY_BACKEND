@@ -1,10 +1,15 @@
 package com.ems.service;
 
-import com.ems.entity.UserEntity;
+import org.springframework.stereotype.Service;
 
-public interface Service {
+import com.ems.entity.EmsEntity;
+@Service
+public interface EmsService {
 
-	public UserEntity login(String username, String password);
-    void forgetPassword(String email);
+public boolean SaveUser(EmsEntity user);
+
+void forgotPassword(String email);
+
+public boolean validateUser(String username, String password);
 
 }

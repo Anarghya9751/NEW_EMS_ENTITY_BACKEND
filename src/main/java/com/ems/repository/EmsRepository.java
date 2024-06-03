@@ -1,11 +1,17 @@
 package com.ems.repository;
 
+import java.util.Optional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.ems.entity.UserEntity;
+import com.ems.entity.EmsEntity;
 
-public interface Repository extends JpaRepository<UserEntity, Long> {
-    UserEntity findByUserName(String UserName);
 
+public interface EmsRepository extends JpaRepository<EmsEntity, Long> {
+	
+    Optional<EmsEntity> findByUsername(String username);
+    
+
+	EmsEntity findByEmail(String email);
 
 }
