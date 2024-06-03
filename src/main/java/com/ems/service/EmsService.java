@@ -11,5 +11,4 @@ public boolean SaveUser(EmsEntity user);
 void forgotPassword(String email);
 
 public boolean validateUser(String username, String password);
-
 }

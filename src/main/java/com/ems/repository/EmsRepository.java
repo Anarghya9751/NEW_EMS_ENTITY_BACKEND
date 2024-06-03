@@ -12,6 +12,7 @@ public interface EmsRepository extends JpaRepository<EmsEntity, Long> {
     Optional<EmsEntity> findByUsername(String username);
     
 
+
 	EmsEntity findByEmail(String email);
 
 }

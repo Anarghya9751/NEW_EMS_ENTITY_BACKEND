@@ -30,7 +30,6 @@ public class EmsServiceImpl implements EmsService {
 	
 	
 	
-	
     public Optional<EmsEntity> findUserByUsername(String username) {
         return emsrepo.findByUsername(username);
     }
@@ -74,10 +73,6 @@ public class EmsServiceImpl implements EmsService {
 	        
 	        javaMailSender.send(message);		
 	}
-
-
-
-
 
 		
 	}
