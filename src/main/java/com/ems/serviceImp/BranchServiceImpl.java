@@ -1,5 +1,6 @@
 package com.ems.serviceImp;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.BeanUtils;
@@ -56,6 +57,11 @@ public class BranchServiceImpl implements BranchService{
 			return true;
 		}
 		return false;
+	}
+	@Override
+	public List<BranchEntity> getAllems() 
+	{
+		return Repo.findAll();
 	}
 
 	

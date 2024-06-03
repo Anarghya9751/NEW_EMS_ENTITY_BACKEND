@@ -1,12 +1,12 @@
 server:
-  port: 9093
+  port: 9094
 spring:
   application:
     name: NEW_EMS_ENTITY_BACKEND
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    password: Ja12345.@
-    url: jdbc:mysql://localhost:3306/branches
+    password: ashok209
+    url: jdbc:mysql://localhost:3306/userdb
     username: root
   jpa:
     hibernate:

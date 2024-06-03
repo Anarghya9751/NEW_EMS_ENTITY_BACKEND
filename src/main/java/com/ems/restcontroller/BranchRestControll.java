@@ -1,5 +1,7 @@
 package com.ems.restcontroller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -57,5 +59,13 @@ public class BranchRestControll {
 		}
 		return new ResponseEntity<String>("update not successfully",HttpStatus.INTERNAL_SERVER_ERROR);
 	
+	}
+	@GetMapping("/New")
+	public ResponseEntity<List<BranchEntity>> getAllems()
+	{
+		List<BranchEntity> allems = Service.getAllems();
+		
+		return new ResponseEntity<List<BranchEntity>>(allems,HttpStatus.OK);
+		
 	}
 }
