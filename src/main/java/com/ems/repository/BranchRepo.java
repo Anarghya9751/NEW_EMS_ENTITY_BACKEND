@@ -9,5 +9,3 @@ package com.ems.repository;
 	public interface BranchRepo extends JpaRepository<BranchEntity, Long> {
 
 	}
-
-

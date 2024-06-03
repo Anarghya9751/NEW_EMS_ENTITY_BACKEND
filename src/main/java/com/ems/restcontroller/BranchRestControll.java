@@ -1,5 +1,7 @@
 package com.ems.restcontroller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,7 +28,7 @@ public class BranchRestControll {
 		if(Status) {
 			return new ResponseEntity<String>("Data saved successfully",HttpStatus.CREATED);
 		}
-		return new ResponseEntity<String>("user not save successfully",HttpStatus.INTERNAL_SERVER_ERROR);
+		return new ResponseEntity<String>("Data not save successfully",HttpStatus.INTERNAL_SERVER_ERROR);
 		
 	}
 	
@@ -57,5 +59,11 @@ public class BranchRestControll {
 		}
 		return new ResponseEntity<String>("update not successfully",HttpStatus.INTERNAL_SERVER_ERROR);
 	
+	}
+	
+	@GetMapping("/getalldata")
+	public ResponseEntity<List<BranchEntity>>getAllUser(){
+		List<BranchEntity> allUser = Service.getAllUser();
+		return new ResponseEntity<List<BranchEntity>>(allUser,HttpStatus.OK);
 	}
 }
