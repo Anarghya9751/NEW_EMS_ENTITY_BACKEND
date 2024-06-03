@@ -1,5 +1,7 @@
 package com.ems.services;
 
+import java.util.List;
+
 import com.ems.entity.BranchEntity;
 
 public interface BranchServices {
@@ -12,8 +14,13 @@ public interface BranchServices {
 		
 		public String deleteById(Long branchId);
 		
+		public List<BranchEntity>  getAllbranch();
+		
+		public BranchEntity getBranchById(Long branchId);
+		
 		
 	}
+
 
 
 

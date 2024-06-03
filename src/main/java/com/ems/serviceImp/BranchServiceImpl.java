@@ -1,5 +1,6 @@
-package com.ems.serviceimpl;
+package com.ems.serviceImp;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.BeanUtils;
@@ -46,7 +47,22 @@ public class BranchServiceImpl implements BranchServices {
 			}
 			return "not found";
 		}
+         
+		@Override
+		public List<BranchEntity> getAllbranch() {
+			
+			return branchrepo.findAll();
+		}
 
+		@Override
+		public BranchEntity getBranchById(Long branchId) {
+			Optional<BranchEntity>  OptionalBranchId = branchrepo.findById(branchId);
+			if(OptionalBranchId.isPresent()) {
+				BranchEntity branch = OptionalBranchId.get();
+				return branch;
+			}
+			return null;
+		}
 		
 
 	

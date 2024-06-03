@@ -1,9 +1,12 @@
 package com.ems.restcontroller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -28,7 +31,7 @@ public class BranchRestController {
 			
 			if(status) {
 				return new ResponseEntity<String>("Branch  save successfully",HttpStatus.CREATED);
-			}
+			}  
 		     return new ResponseEntity<String>("Branch is not save successfully",HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 		
@@ -41,7 +44,7 @@ public class BranchRestController {
 			return new ResponseEntity<String>("Branch not updated successfully", HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 		  
-	      @DeleteMapping("/delete/{branchId}	")
+	      @DeleteMapping("/delete/{branchId}")
 		public ResponseEntity<String> deleteById(@PathVariable Long branchId) {
 			String deleteById = services.deleteById(branchId);
 			if(deleteById.equals("delete")) {
@@ -51,6 +54,19 @@ public class BranchRestController {
 			}
 			return new ResponseEntity<String>("branch not found",HttpStatus.OK);
 		}
+	      
+	      @GetMapping("/getbranch")
+	  	public ResponseEntity<List<BranchEntity>> getAllBranch(){
+	  		List<BranchEntity>  allbranch=services.getAllbranch();
+	  		return new ResponseEntity<List<BranchEntity>> (allbranch,HttpStatus.OK);
+	  	}
+	  	
+	  	
+	  	@GetMapping("/get/{branchId}")
+	  	public ResponseEntity<BranchEntity> getById(@PathVariable Long branchId){
+	  		BranchEntity branch = services.getBranchById(branchId);
+	  		return new ResponseEntity<BranchEntity> (branch,HttpStatus.OK);
+	  	}
 	
 
 }

@@ -6,5 +6,3 @@ import com.ems.entity.BranchEntity;
 public interface BranchRepo extends JpaRepository<BranchEntity ,Long>{
 
 	}
-
-
