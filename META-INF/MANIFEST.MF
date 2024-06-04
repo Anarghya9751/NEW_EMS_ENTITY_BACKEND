@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: NEW_EMS_ENTITY_BACKEND
+Bundle-SymbolicName: NEW_EMS_ENTITY_BACKEND
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-17
+Automatic-Module-Name: NEW.EMS.ENTITY.BACKEND
