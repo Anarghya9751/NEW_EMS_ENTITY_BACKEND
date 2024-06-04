@@ -16,7 +16,7 @@ public class HierarchyController {
 	public HierarchyServiceImpl hierarchyImpl;
 
 	@RequestMapping("/getOrgDetails/{id}")
-	public OrganizationDTO getOrganizationsDetails(@PathVariable("id") long id){
+	public OrganizationDTO getOrganizationsDetails(@PathVariable("id") Long id){
 		return hierarchyImpl.getOrganizationsDetails(id);
 		
 	}
