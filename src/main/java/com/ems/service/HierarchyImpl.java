@@ -27,54 +27,36 @@ public class HierarchyImpl implements Hierarchy {
 	DesignationRepo dnRepo;
 
 	@Override
-	public List<OrganizationDTO> getOrganisationsDetails() {
-
-		List<Organization> orgList = orRepo.findAll();
+	public OrganizationDTO getOrganisationDetails(Long id) {
+		Organization org = orRepo.findById(id).get();
 		List<Brach> brList = brRepo.findAll();
 		List<Department> dtList = dtRepo.findAll();
 		List<Designation> dnList = dnRepo.findAll();
 
-		List<OrganizationDTO> orgDTOList = new ArrayList<OrganizationDTO>();
+		OrganizationDTO orgDTO = new OrganizationDTO();
+		orgDTO.setName(org.getName());
 
-		for (Organization org : orgList) {
-			OrganizationDTO orgDTO = new OrganizationDTO();
-			orgDTO.setName(org.getName());
-
-			for (Branch br : brList) {
-
-				if (br.parentOrg == org.getName()) {
-					BranchDTO brDTO = new BranchDTO();
-					brDTO.setName(br.branchName);
-
-					for (Department dt : dtList) {
-
-						if (dt.parentBranch == br.branchName) {
-
-							DepartmentDTO dtDTO = new DepartmentDTO();
-							dtDTO.setName(dt.departmentName);
-
-							for (Designation dn : dnList) {
-
-								if (dn.parentDepartment == dt.departmentName) {
-
-									DesignationDTO dnDTO = new DesignationDTO();
-									dnDTO.setName(dn.designationName);
-									dtDTO.getRoles().add(dnDTO);
-								}
-
+		for (Branch br : brList) {
+			if (br.getParentOrg().equals(org.getName())) {
+				BranchDTO brDTO = new BranchDTO();
+				brDTO.setName(br.getBranchName());
+				for (Department dt : dtList) {
+					if (dt.getParentBranch().equals(br.getBranchName())) {
+						DepartmentDTO dtDTO = new DepartmentDTO();
+						dtDTO.setName(dt.getDepartmentName());
+						for (Designation dn : dnList) {
+							if (dn.getParentDepartment().equals(dt.getDepartmentName())) {
+								DesignationDTO dnDTO = new DesignationDTO();
+								dnDTO.setName(dn.getDesignationName());
+								dtDTO.getRoles().add(dnDTO);
 							}
-
-							brDTO.getDepartments().add(dtDTO);
-
 						}
+						brDTO.getDepartments().add(dtDTO);
 					}
-
-					orgDTO.getBranches().add(brDTO);
 				}
+				orgDTO.getBranches().add(brDTO);
 			}
-			orgDTOList.add(orgDTO);
 		}
-		return orgDTOList;
+		return orgDTO;
 	}
-
 }
