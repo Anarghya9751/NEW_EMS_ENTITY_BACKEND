@@ -4,25 +4,23 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.ems.dto.OrganizationDTO;
 
 @RestController
 public class HierarchyController {
 	@Autowired
 	public HierarchyServiceImpl hierarchyImpl;
 
-	@GetMapping("/getOrgDetails")
-	public List<OrganizationDTO> getOrganizationsDetails(){
-		return hierarchyImpl.getOrganizationsDetails();
+	@RequestMapping("/getOrgDetails/{id}")
+	public OrganizationDTO getOrganizationsDetails(@PathVariable("id") long id){
+		return hierarchyImpl.getOrganizationsDetails(id);
 		
 	}
-	try {
-		Class.forName("com.mysql.cj.jdbc.Driver"); 
-	}
-
-		catch (SQLException | ClassNotFoundException e) { 
-            // handle the SQL exception 
-            handleSQLException(e); 
-	}
+	
 
 }
+
