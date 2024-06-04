@@ -1,6 +1,10 @@
 package com.ems.restcontroller;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -25,9 +29,15 @@ public class EmsRestController {
 	@PutMapping("/update/{Oid}")
 	public Organization updateEms(@PathVariable Integer Oid ,@RequestBody Organization organization )
 	{
+		BeanUtils.copyProperties(Oid, organization);
 		return emsservice.updateEms(Oid, organization);
 	}
 	
-	
+	@GetMapping("/organization/{Oid}")
+	public ResponseEntity<Organization> getOrganization(@PathVariable Integer Oid){
+		Organization organization = emsservice.getById(Oid);
+		return new ResponseEntity<>(organization,HttpStatus.OK);	
+		
+	}
 	}
 

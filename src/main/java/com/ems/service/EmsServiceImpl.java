@@ -1,5 +1,7 @@
 package com.ems.service;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +23,15 @@ public Organization createEms(Organization organization) {
 public Organization updateEms(Integer Oid,Organization organization) {
 	organization.setOid(Oid);
 	return emsrepo.save(organization);
+}
+@Override
+public Organization getById(Integer Oid) {
+	Optional<Organization> findByID = emsrepo.findById(Oid);
+	
+	if(findByID.isPresent()) {
+		return findByID.get();
+	}
+	return null;
 }
 }
 	
